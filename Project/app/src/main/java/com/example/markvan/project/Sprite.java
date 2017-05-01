@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
+import java.util.ArrayList;
+
 /**
  * Created by markvan on 4/25/17.
  */
@@ -19,8 +21,15 @@ public abstract class Sprite {
 
     private Paint paint = new Paint(Color.RED);
 
+    private float locationY;
+
+    private float locationX;
+
+
     public Sprite(float locationX, float locationY, float xVelocity, float yVelocity) {
         rect.offsetTo(locationX, locationY);
+        this.locationX = locationX;
+        this.locationY = locationY;
         xVel = xVelocity;
         yVel = yVelocity;
     }
@@ -39,7 +48,7 @@ public abstract class Sprite {
     }
 
     public void move() {
-        rect.offset(xVel, yVel);
+
     }
 
     public void updateLocation(float width, float height) {
@@ -54,6 +63,7 @@ public abstract class Sprite {
         }
     }
 
+
     public RectF getRect() {
         return rect;
     }
@@ -63,15 +73,15 @@ public abstract class Sprite {
     }
 
     public float getxVelocity() {
-        return xVel;
+        return this.xVel;
     }
 
     public void setxVelocity(float xVelocity) {
         this.xVel = xVelocity;
     }
 
-    public float getyVelocity(float yVelocity) {
-        return yVel;
+    public float getyVelocity() {
+        return this.yVel;
     }
 
     public void setyVelocity(float yVelocity) {
@@ -87,7 +97,4 @@ public abstract class Sprite {
     }
 
     public abstract void draw(Canvas canvas);
-
-
-
 }

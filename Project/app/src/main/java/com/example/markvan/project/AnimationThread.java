@@ -5,6 +5,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
+
 /**
  * Created by markvan on 4/25/17.
  */
@@ -14,6 +16,8 @@ public class AnimationThread {
 
     private View v;
 
+    private Sprite sprite;
+
     private Thread thread;
 
     private float framesPerSecond;
@@ -21,6 +25,10 @@ public class AnimationThread {
     private Handler handler;
 
     private volatile boolean isRunning;
+
+
+
+
 
     public AnimationThread(View aView, float fps) {
         v = aView;
@@ -58,11 +66,13 @@ public class AnimationThread {
     }
 
     private class ThreadRunner implements Runnable {
+
         @Override
         public void run() {
             isRunning = true;
             while (isRunning) {
                     try {
+
                         Thread.sleep((long)(1000 / framesPerSecond));
 
                         handler.post(new Updater());

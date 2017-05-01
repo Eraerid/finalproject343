@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 
 public class BallSprite extends Sprite {
 
-    public final static float DEFAULT_SIZE = 100.f;
+    public final static float DEFAULT_SIZE = 100.0f;
 
     public BallSprite(float xLoc, float yLoc, float xVel, float yVel) {
         super(xLoc, yLoc, xVel, yVel);
